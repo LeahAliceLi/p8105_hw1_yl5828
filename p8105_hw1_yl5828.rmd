@@ -14,6 +14,7 @@ We first install the required "moderndive" package in Console.
 ```{r install package and dataset}
 # Load the dataset
 library(moderndive)
+library(tidyverse)
 data("early_january_weather")
 ```
 
@@ -22,6 +23,31 @@ help("early_january_weather")
 ```
 
 The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. The dataset has `r nrow(early_january_weather) ` rows and `r ncol (early_january_weather)` columns. The mean temperature is `r mean(early_january_weather$temp)` F.
+
+```{r scatterplot}
+weather_plot <- ggplot(
+  early_january_weather,
+  aes(x = time_hour, y = temp, color = humid) )+ 
+  geom_point(alpha = .5) +
+  theme(legend.position = "bottom")
+
+# Display the plot in the report
+print(weather_plot)
+```
+
+Now, we save the scatterplot to our project directory.
+
+```{r extract plot}
+ggsave("temp_vs_time_plot.png", plot = weather_plot, width = 10, height = 6, dpi = 300)
+```
+
+
+
+#### Problem 2
+
+
+
+
 
 
 
