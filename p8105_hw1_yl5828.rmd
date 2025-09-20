@@ -34,7 +34,7 @@ Now, we would like to generate a scatterplot of temperature versus time.
 ```{r scatterplot}
 weather_plot <- ggplot(
   early_january_weather,
-  aes(x = time_hour, y = temp, color = humid) )+ 
+  aes(x = time_hour, y = temp, color = humid) ) + 
   geom_point(alpha = .5) +
   theme(legend.position = "bottom")
 
@@ -59,9 +59,37 @@ ggsave("temp_vs_time_plot.png", plot = weather_plot, width = 10, height = 6, dpi
 
 #### Problem 2
 
+Now, we would like to construct a dataframe with some required vectors.
 
+```{r create dataframe}
+# Set a seed for reproducibility
+set.seed(123)
 
+# Create the required vectors
+normal_sample <- rnorm(10)
+logical_vector <- normal_sample > 0
+char_vector <- sample(letters, 10)
+factor_vector <- factor(sample(c("low", "medium", "high"), 10, replace = TRUE))
 
+set.seed(123)
+# Combine them into a data frame
+custom_df <- data.frame(
+  NormalSample = normal_sample,
+  GreaterThan0 = logical_vector,
+  Character = char_vector,
+  Level = factor_vector
+)
+
+set.seed(123)
+# Print the data frame
+print(custom_df)
+```
+
+Now, we want to take the mean of each variable in the dataframe. What works and what doesn’t?
+
+```{r take mean}
+
+```
 
 
 

@@ -390,7 +390,7 @@ columns.</p>
 time.</p>
 <pre class="r"><code>weather_plot &lt;- ggplot(
   early_january_weather,
-  aes(x = time_hour, y = temp, color = humid) )+ 
+  aes(x = time_hour, y = temp, color = humid) ) + 
   geom_point(alpha = .5) +
   theme(legend.position = &quot;bottom&quot;)
 
@@ -419,6 +419,42 @@ by.</p></li>
 </div>
 <div id="problem-2" class="section level4">
 <h4>Problem 2</h4>
+<p>Now, we would like to construct a dataframe with some required
+vectors.</p>
+<pre class="r"><code># Set a seed for reproducibility
+set.seed(123)
+
+# Create the required vectors
+normal_sample &lt;- rnorm(10)
+logical_vector &lt;- normal_sample &gt; 0
+char_vector &lt;- sample(letters, 10)
+factor_vector &lt;- factor(sample(c(&quot;low&quot;, &quot;medium&quot;, &quot;high&quot;), 10, replace = TRUE))
+
+set.seed(123)
+# Combine them into a data frame
+custom_df &lt;- data.frame(
+  NormalSample = normal_sample,
+  GreaterThan0 = logical_vector,
+  Character = char_vector,
+  Level = factor_vector
+)
+
+set.seed(123)
+# Print the data frame
+print(custom_df)</code></pre>
+<pre><code>##    NormalSample GreaterThan0 Character  Level
+## 1   -0.56047565        FALSE         y    low
+## 2   -0.23017749        FALSE         z   high
+## 3    1.55870831         TRUE         i   high
+## 4    0.07050839         TRUE         c    low
+## 5    0.12928774         TRUE         h   high
+## 6    1.71506499         TRUE         g medium
+## 7    0.46091621         TRUE         j    low
+## 8   -1.26506123        FALSE         x   high
+## 9   -0.68685285        FALSE         d    low
+## 10  -0.44566197        FALSE         n    low</code></pre>
+<p>Now, we want to take the mean of each variable in the dataframe. What
+works and what doesn’t?</p>
 </div>
 </div>
 
