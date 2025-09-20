@@ -20,6 +20,7 @@ data("early_january_weather")
 
 ```{r check dataset}
 help("early_january_weather")
+glimpse(early_january_weather)
 ```
 
 The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. 
@@ -36,6 +37,11 @@ weather_plot <- ggplot(
   early_january_weather,
   aes(x = time_hour, y = temp, color = humid) ) + 
   geom_point(alpha = .5) +
+  labs(
+    title ="Temperaturevs Time in Early January 2013",
+    x="Time (hourly)",
+    y="Temperature(°F)"
+    )+
   theme(legend.position = "bottom")
 
 # Display the plot
