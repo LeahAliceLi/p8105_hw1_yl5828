@@ -7,7 +7,7 @@ output: html_document
 
 # HW1
 
-#### Problem 1
+## Problem 1
 
 We first install the required "moderndive" package in Console.
 
@@ -29,6 +29,8 @@ The dataset has **`r nrow(early_january_weather) `** rows and **`r ncol (early_j
 
 The mean temperature is **`r mean(early_january_weather$temp)`** F.
 
+
+### 1.2 Create Scatterplot
 
 Now, we would like to generate a scatterplot of temperature versus time.
 
@@ -55,6 +57,7 @@ Several patterns are apparent in this plot:
 
 3.  **Time and Temperature Relationship:** While the daily cycle is consistent, the overall peaks and troughs vary from day to day. For instance, the temperatures around January 4th are noticeably lower than those around January 11th, indicating a cold spell followed by a warmer period. Overall, the temperature increases as the time goes by.
 
+### 1.3 Save Scatterplot
 Now, we save the scatterplot to our project directory.
 
 ```{r extract plot}
@@ -63,7 +66,7 @@ ggsave("temp_vs_time_plot.png", plot = weather_plot, width = 10, height = 6, dpi
 
 
 
-#### Problem 2
+## Problem 2
 
 Now, we would like to construct a dataframe with some required vectors.
 
@@ -93,6 +96,7 @@ set.seed(123)
 print(dataframe)
 ```
 
+### 2.2 Take Mean
 Now, we take the mean of each variable in the dataframe.
 
 ```{r take mean}
@@ -121,6 +125,7 @@ We could notice that for factor vector the mean also returns **NA**.
 
 That is, we can conclude that take means can work only for **normal sample** and **logical** variables, but not for **character** and **factor** variables.
 
+### 2.3 Apply as.numeric function
 ```{r }
 #echo = T, results = 'hide'
 as.numeric(pull(dataframe, GreaterThan0))
