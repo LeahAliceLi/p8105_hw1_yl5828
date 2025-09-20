@@ -25,6 +25,8 @@ glimpse(early_january_weather)
 
 The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. 
 
+The variables are: `r paste(names(early_january_weather), collapse = ", ")`.
+
 The dataset has **`r nrow(early_january_weather) `** rows and **`r ncol (early_january_weather)`** columns. 
 
 The mean temperature is **`r mean(early_january_weather$temp)`** F.
