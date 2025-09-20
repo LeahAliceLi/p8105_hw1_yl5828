@@ -4,3 +4,25 @@ author: "Leah Li"
 date: "2025-09-19"
 output: html_document
 ---
+
+# HW1
+
+#### Problem 1
+
+We first install the required "moderndive" package in Console.
+
+```{r install package and dataset}
+# Load the dataset
+library(moderndive)
+data("early_january_weather")
+```
+
+```{r check dataset}
+help("early_january_weather")
+```
+
+The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. The dataset has `r nrow(early_january_weather) ` rows and `r ncol (early_january_weather)` columns. The mean temperature is `r mean(early_january_weather$temp)` F.
+
+
+
+
