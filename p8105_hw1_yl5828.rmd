@@ -22,7 +22,14 @@ data("early_january_weather")
 help("early_january_weather")
 ```
 
-The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. The dataset has `r nrow(early_january_weather) ` rows and `r ncol (early_january_weather)` columns. The mean temperature is `r mean(early_january_weather$temp)` F.
+The dataset `early_january_weather` from the `moderndive` package has character variable **origin**, integer variables **year, month, day, hour**, double class variables **temp, dewp, humid, wind_dir, wind_speed, wind_gust, precip, precip, visib**, and date and time variable **time_hour**. 
+
+The dataset has **`r nrow(early_january_weather) `** rows and **`r ncol (early_january_weather)`** columns. 
+
+The mean temperature is **`r mean(early_january_weather$temp)`** F.
+
+
+Now, we would like to generate a scatterplot of temperature versus time.
 
 ```{r scatterplot}
 weather_plot <- ggplot(
@@ -31,9 +38,16 @@ weather_plot <- ggplot(
   geom_point(alpha = .5) +
   theme(legend.position = "bottom")
 
-# Display the plot in the report
+# Display the plot
 print(weather_plot)
 ```
+Several patterns are apparent in this plot:
+
+1.  **Diurnal Cycle:** There is a clear and repeating cyclical pattern in the temperature. The temperature consistently rises during the daytime and falls during the nighttime. This creates the wave-like shape visible across the x-axis, representing the daily temperature cycle.
+
+2.  **Time and Humidity Relationship:** The color of the points reveals a relationship between temperature and time. The humidity increases as the time goes by.
+
+3.  **Time and Temperature Relationship:** While the daily cycle is consistent, the overall peaks and troughs vary from day to day. For instance, the temperatures around January 4th are noticeably lower than those around January 11th, indicating a cold spell followed by a warmer period. Overall, the temperature increases as the time goes by.
 
 Now, we save the scatterplot to our project directory.
 
